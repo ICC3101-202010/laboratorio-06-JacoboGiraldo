@@ -30,13 +30,21 @@ namespace Laboratorio6
                         Console.WriteLine("El archivo esta vacio, no hay ninguna empresa creada \n");
                     }
                     foreach (Empresa empresa in EmpresaX)
-                        Console.WriteLine("\n"+empresa.IETS());
+                    {
+                        Console.WriteLine("\n" + empresa.IETS());
+                        foreach (Division division in empresa.Divisions)
+                        {
+                            division.ShowInfo();
+                        }
+
+                    }
                     Console.WriteLine("");   
                     Console.WriteLine(m2);
                     string ichoice = Console.ReadLine();
                     if (ichoice == "Si")
                     {
                         añadirEmpresa(EmpresaX);
+
                         Save(EmpresaX);
                         break;
                     }
@@ -58,8 +66,13 @@ namespace Laboratorio6
             Console.Write("Nombre de la Empresa: ");
             string nom = Console.ReadLine();
             Console.Write("Rut de la Empresa: ");
-            string rut = Console.ReadLine();     
-            empresax.Add(new Empresa(nom, rut));
+            string rut = Console.ReadLine();
+            Empresa empresa = new Empresa(nom, rut);
+            Console.Write("Cuantas divisiones desea tener en su empresa (1-2-3-4): ");
+            int div = int.Parse(Console.ReadLine());
+            empresa.CreateDiv(div);
+            empresax.Add(empresa);
+            
         }
         static private void Save(List<Empresa> empresas)
         {

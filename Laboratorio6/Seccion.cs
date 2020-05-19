@@ -1,10 +1,12 @@
 ﻿using System;
 namespace Laboratorio6
 {
-    public class Seccion
+    [Serializable]
+    public class Seccion : Division
     {
-        public Seccion()
+        public virtual void NombreDiv(string Nombre)
         {
+            this.Nombre = Nombre;
         }
     }
 }
