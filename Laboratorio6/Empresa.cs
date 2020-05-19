@@ -23,7 +23,12 @@ namespace Laboratorio6
 
         public string IETS()
         {
-           return "Nombre de la Empresa: " + Nombre_Empresa + "\n" + "Rut de la Empresa: " + Rut_Empresa;
+            string empty = "";
+            empty += "Nombre de la Empresa: " + Nombre_Empresa + "\n" + "Rut de la Empresa: " + Rut_Empresa + "\n";
+            empty += "Trabajadores: " + "\n";
+            foreach(Division div in divisions)
+                empty += div.ShowInfo(div.Enc, div.Pers) +"\n";
+            return empty;
         }
 
         public void CreateDiv(int Param)

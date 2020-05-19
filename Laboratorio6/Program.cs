@@ -32,11 +32,6 @@ namespace Laboratorio6
                     foreach (Empresa empresa in EmpresaX)
                     {
                         Console.WriteLine("\n" + empresa.IETS());
-                        foreach (Division division in empresa.Divisions)
-                        {
-                            division.ShowInfo();
-                        }
-
                     }
                     Console.WriteLine("");   
                     Console.WriteLine(m2);
@@ -69,8 +64,8 @@ namespace Laboratorio6
             string rut = Console.ReadLine();
             Empresa empresa = new Empresa(nom, rut);
             Console.Write("Cuantas divisiones desea tener en su empresa (1-2-3-4): ");
-            int div = int.Parse(Console.ReadLine());
-            empresa.CreateDiv(div);
+            int numdiv = int.Parse(Console.ReadLine());
+            empresa.CreateDiv(numdiv);
             empresax.Add(empresa);
             
         }

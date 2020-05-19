@@ -10,9 +10,11 @@ namespace Laboratorio6
     public class Division
     {
         protected string Nombre;
-        public List<Persona> Encargado = new List<Persona>();
-        public List<Persona> Personal = new List<Persona>();
-        
+        protected List<Persona> Encargado = new List<Persona>();
+        protected List<Persona> Personal = new List<Persona>();
+
+        public List<Persona> Enc { get => Encargado; set => Encargado = value; }
+        public List<Persona> Pers { get => Personal; set => Personal = value; }
         public virtual void NombreDiv(string Nombre)
         {
             this.Nombre = Nombre;
@@ -49,11 +51,11 @@ namespace Laboratorio6
             }
             
         }
-        public string ShowInfo()
+        public string ShowInfo(List<Persona> enca, List<Persona> pers)
         {
             string str = "";
-            
-            foreach (Persona px in Personal)
+            str += enca[0].IP() + "\n";
+            foreach (Persona px in pers)
             {
                 str += px.IP() + "\n";
             }
