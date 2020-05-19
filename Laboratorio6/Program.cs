@@ -12,32 +12,26 @@ namespace Laboratorio6
         {
             string Menu = "Bienvenido a su administrador de personal generico.";
             Console.WriteLine(Menu);
-
             List<Empresa> EmpresaX = new List<Empresa>();
-
             string m1 = "Desea cargar el archivo de empresas? (Si/No)";
             string m2 = "Deseas crear una empresa y agregarla al archivo? (Si/No)";
             while (true)
             {
                 Console.WriteLine(m1);
                 string choice = Console.ReadLine();
-
                 if (choice == "Si")
                 {
                     try
                     {
-                        EmpresaX = Load();
-                        
+                        EmpresaX = Load();        
                     }
                     catch
                     {
                         Console.WriteLine("El archivo esta vacio, no hay ninguna empresa creada \n");
-
                     }
                     foreach (Empresa empresa in EmpresaX)
                         Console.WriteLine("\n"+empresa.IETS());
-                    Console.WriteLine("");
-                    
+                    Console.WriteLine("");   
                     Console.WriteLine(m2);
                     string ichoice = Console.ReadLine();
                     if (ichoice == "Si")
@@ -49,9 +43,7 @@ namespace Laboratorio6
                     else if (ichoice == "No")
                     {
                         break;
-                    }
-                    
-                    
+                    }     
                 }
                 else if (choice == "No")
                 {
@@ -59,9 +51,7 @@ namespace Laboratorio6
                     Save(EmpresaX);
                     break;
                 }
-
             }
-
         }
         static public void añadirEmpresa(List<Empresa> empresax)
         {
@@ -71,7 +61,6 @@ namespace Laboratorio6
             string rut = Console.ReadLine();     
             empresax.Add(new Empresa(nom, rut));
         }
-
         static private void Save(List<Empresa> empresas)
         {
             IFormatter formatter = new BinaryFormatter();
@@ -79,7 +68,6 @@ namespace Laboratorio6
             formatter.Serialize(stream, empresas);
             stream.Close();
         }
-
         static private List<Empresa> Load()
         {
             IFormatter formatter = new BinaryFormatter();
@@ -88,9 +76,5 @@ namespace Laboratorio6
             stream.Close();
             return empresa;
         }
-
-
-
-
     }
 }
