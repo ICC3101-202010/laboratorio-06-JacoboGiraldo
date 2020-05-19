@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-
 namespace Laboratorio6
 {
     [Serializable]
@@ -13,14 +12,11 @@ namespace Laboratorio6
         protected string Rut_Empresa;
         protected List<Division> divisions = new List<Division>();
         public List<Division> Divisions { get => divisions; set => divisions = value; }
-       
-        public Empresa(string N, string R/*, List<Division> Div*/)
+        public Empresa(string N, string R)
         {
             Nombre_Empresa = N;
-            Rut_Empresa = R;
-            /*divisions = Div;*/
+            Rut_Empresa = R;         
         }
-
         public string IETS()
         {
             string empty = "";
@@ -30,7 +26,6 @@ namespace Laboratorio6
                 empty += div.ShowInfo(div.Enc, div.Pers) +"\n";
             return empty;
         }
-
         public void CreateDiv(int Param)
         {
             switch (Param)
@@ -113,7 +108,6 @@ namespace Laboratorio6
                     divisions.Add(Seccion2);
                     divisions.Add(Bloque3);
                     break;
-                
             }
         }
     }

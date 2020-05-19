@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-
 namespace Laboratorio6
 {
     class MainClass
@@ -39,7 +38,6 @@ namespace Laboratorio6
                     if (ichoice == "Si")
                     {
                         añadirEmpresa(EmpresaX);
-
                         Save(EmpresaX);
                         break;
                     }
@@ -66,8 +64,7 @@ namespace Laboratorio6
             Console.Write("Cuantas divisiones desea tener en su empresa (1-2-3-4): ");
             int numdiv = int.Parse(Console.ReadLine());
             empresa.CreateDiv(numdiv);
-            empresax.Add(empresa);
-            
+            empresax.Add(empresa);   
         }
         static private void Save(List<Empresa> empresas)
         {

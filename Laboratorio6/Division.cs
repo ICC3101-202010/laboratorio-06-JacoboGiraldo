@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-
 namespace Laboratorio6
 {
     [Serializable]
@@ -12,7 +11,6 @@ namespace Laboratorio6
         protected string Nombre;
         protected List<Persona> Encargado = new List<Persona>();
         protected List<Persona> Personal = new List<Persona>();
-
         public List<Persona> Enc { get => Encargado; set => Encargado = value; }
         public List<Persona> Pers { get => Personal; set => Personal = value; }
         public virtual void NombreDiv(string Nombre)
@@ -48,8 +46,7 @@ namespace Laboratorio6
                 string Car = "Personal";
                 Persona PersonaX = new Persona(Nom, Ape, Rut, (Car + " de " + Nombre));
                 Personal.Add(PersonaX);
-            }
-            
+            }  
         }
         public string ShowInfo(List<Persona> enca, List<Persona> pers)
         {
@@ -61,8 +58,5 @@ namespace Laboratorio6
             }
             return str;
         }
-
-
-
     }
 }
