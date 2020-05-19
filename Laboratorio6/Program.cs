@@ -15,8 +15,8 @@ namespace Laboratorio6
 
             List<Empresa> EmpresaX = new List<Empresa>();
 
-            string m1 = " Desea cargar el archivo de empresas? (Si/No)";
-            string m2 = " Deseas crear una empresa y agregarla al archivo? (Si/No)";
+            string m1 = "Desea cargar el archivo de empresas? (Si/No)";
+            string m2 = "Deseas crear una empresa y agregarla al archivo? (Si/No)";
             while (true)
             {
                 Console.WriteLine(m1);
@@ -24,28 +24,34 @@ namespace Laboratorio6
 
                 if (choice == "Si")
                 {
-                    EmpresaX = Load();
-                    if (EmpresaX.Count == 0)
+                    try
                     {
-                        Console.Clear();
-                        Console.WriteLine("El archivo esta vacio, no hay niguna empresa creada");
-                        Console.WriteLine(m2);
-                        string ichoice = Console.ReadLine();
-                        if (ichoice == "Si")
-                        {
-                            añadirEmpresa(EmpresaX);
-                            Save(EmpresaX);
-                        }
-                        else if (ichoice == "No")
-                        {
-                            break;
-                        }
+                        EmpresaX = Load();
+                        
                     }
-                    else
+                    catch
                     {
-                       foreach (Empresa empresa in EmpresaX)
-                            Console.WriteLine(empresa.IETS());
+                        Console.WriteLine("El archivo esta vacio, no hay ninguna empresa creada \n");
+
                     }
+                    foreach (Empresa empresa in EmpresaX)
+                        Console.WriteLine("\n"+empresa.IETS());
+                    Console.WriteLine("");
+                    
+                    Console.WriteLine(m2);
+                    string ichoice = Console.ReadLine();
+                    if (ichoice == "Si")
+                    {
+                        añadirEmpresa(EmpresaX);
+                        Save(EmpresaX);
+                        break;
+                    }
+                    else if (ichoice == "No")
+                    {
+                        break;
+                    }
+                    
+                    
                 }
                 else if (choice == "No")
                 {
